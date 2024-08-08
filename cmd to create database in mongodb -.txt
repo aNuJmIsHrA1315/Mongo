@@ -1,0 +1,80 @@
+cmd to create database in mongodb :-
+
+use mern;
+
+cmd to create collection in database:-
+
+db.collectionName;
+
+cmd to insert data in collection
+
+db.collectionName.insertOne({firstName:"", lastName:"", age:20});
+
+cmd to find data
+
+db.collectionName.find();
+
+cmd to insertMany recoreds in one query
+
+db.demo.insertMany([{name:"Shyam", address:"indore", age:18, salary:40000},{name:"Karan", address:"Ujjain", age:22, salary:60000},{name:"Mayank", address:"bhopal", age:17, salary:35000}]);
+
+cmd to find selected recoreds
+
+db.demo.find({name:"Karan"});
+
+cmd to sort recored in asc or desc
+
+db.demo.find().sort({name:-1});
+db.demo.find().sort({name:1});
+
+cmd to add pagination 
+
+db.demo.find().limit(2);
+db.demo.find().limit(2).skip(2);
+
+cmd to add search filter = 
+
+db.demo.find().sort({salary:-1}).limit(1);
+
+cmd to update reacored
+db.demo.updateOne({name:"Kamal"},{$set:{salary:75000}});
+
+cmd to delete recored
+db.demo.deleteOne({_id: ObjectId("66b4769894d9bda4bcb3c853")});
+
+
+Microsoft Windows [Version 10.0.22631.3880]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Dell>mongosh
+Current Mongosh Log ID: 66b32a26a94faaef84c5f721
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.6
+Using MongoDB:          6.0.16
+Using Mongosh:          1.10.6
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-08-06T18:35:10.873+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use mern;
+switched to db mern
+mern> db.demo
+mern.demo
+mern> db.demo.insertOne({fristName:"Ram", lastName:"Yadav", age:20});
+{
+  acknowledged: true,
+  insertedId: ObjectId("66b32cfea94faaef84c5f722")
+}
+mern> db.demo.find();
+[
+  {
+    _id: ObjectId("66b32cfea94faaef84c5f722"),
+    fristName: 'Ram',
+    lastName: 'Yadav',
+    age: 20
+  }
+]
+mern>
